@@ -1,0 +1,148 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Mar 14 07:19:10 2016
+
+@author: Cody Normington
+"""
+
+###############################################################################
+#
+# Rock Paper Scissors Lizard Spock Text Game:
+#
+# -ask for player response
+# -generate computer response
+# -compare responses
+# -determine winner
+# -print outcomes
+#
+###############################################################################
+
+#import modules
+import random
+
+def name_to_number(name):
+    """
+    Convert string given into modulo 5 number for comparisons.
+    """
+    #valid entries
+    if name == "rock":
+        return 0
+    elif name == "Spock":
+        return 1
+    elif name == "paper":
+        return 2
+    elif name == "lizard":
+        return 3
+    elif name == "scissors":
+        return 4
+    #invalid entries
+    else:
+        print ""
+        print "="*40
+        print "Player Entry Error!"
+        print str(name) + " is not a valid response..."
+        print "="*40
+        return "-invalid-"
+
+def number_to_name(number):
+    """
+    Convert modulo 5 number back into corresponding responses for printing.
+    """
+    #valid entries
+    if number == 0:
+        return "rock"
+    elif number == 1:
+        return "Spock"
+    elif number == 2:
+        return "paper"
+    elif number == 3:
+        return "lizard"
+    elif number == 4:
+        return "scissors"
+    #invalid entries
+    else:
+        print ""
+        print "="*40
+        print "Player Entry Error!"
+        print str(number) + " does not correspond to a valid response..."
+        print "="*40
+        return "-invalid-"
+
+def rpsls(player_choice):
+    """
+    Take player response, generate computer response, compare, and print results.
+    """
+    #generate computer choice
+    comp_number = random.randrange(0,5)
+    comp_choice = number_to_name(comp_number)
+    #convert player choice to number
+    player_number = name_to_number(player_choice)
+    #entries are invalid
+    if comp_choice == "-invalid-" or player_number == "-invalid-":
+        pass
+    #entries are valid
+    else:
+        #print choices
+        print ""
+        print "Player chooses " + player_choice
+        print "Computer chooses " + comp_choice
+        #compare numbers
+        int_outcome = (comp_number - player_number) % 5
+        #outcomes
+        if int_outcome == 0:
+            print "It's a tie!"
+        elif int_outcome == 1 or int_outcome == 2:
+            print "Computer wins!"
+        elif int_outcome == 3 or int_outcome == 4:
+            print "Player wins!"
+        else:
+            print ""
+            print "="*40
+            print "Comparison Error!"
+            print str(int_outcome) + " is not a valid comparison value..."
+            print "="*40    
+
+def game_start():
+    """
+    Print game start message and ask for player response.
+    """
+    print ""
+    print ""
+    print "="*50
+    print " "*9 + "Rock Paper Scissors Lizard Spock" + " "*9
+    print "="*50
+    print ""
+    print "Welcome to RPSLS!"
+    #grab player response    
+    player_choice = raw_input("Please enter your response: \n")
+    player_choice = str.lower(player_choice)
+    #Title case Spock
+    if player_choice == "spock":
+        player_choice = str.title(player_choice)
+    #call rpsls
+    rpsls(player_choice)
+
+#first game
+game_start()
+    
+#initialize str_rep
+str_rep = "y"
+
+#replay game loop
+while str_rep != "n":
+    str_rep = raw_input("Would you like to play again? (y/n): \n")
+    str_rep = str.lower(str_rep)        
+    #replay game
+    if str_rep == "y":
+        game_start()
+    #end game
+    elif str_rep == "n":
+        print ""
+        print "Thanks for playing!"
+    #invalid response
+    else:
+        print ""
+        print "="*40
+        print "Player Entry Error!"
+        print str(str_rep) + " is not a valid response..."
+        print "="*40

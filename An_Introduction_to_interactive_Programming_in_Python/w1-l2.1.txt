@@ -1,0 +1,55 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Mar 10 15:10:42 2016
+
+@author: xrgb231
+"""
+
+# Logic and Comparisons
+
+a = True
+b = False
+c = True
+d = False
+
+
+print a
+print b
+print c
+print d
+
+print "====="
+
+print not a
+print a and b
+print a or b
+
+print "====="
+
+print (a and b) or (c and (not d))
+
+print "====="
+
+#>
+#<
+#>=
+#<=
+#==
+#!=
+
+e = 7 > 3
+print e
+
+x = 8
+y = 5
+f = x >= y
+print f
+
+g = "Hello" == 'Hello'
+h = "Hello" == 'hello'
+print g,h
+
+i = 20.6 <= 18.3
+print i
+
+print (e and f) or (g and (not i))

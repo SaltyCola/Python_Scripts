@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Mar 10 08:08:27 2016
+
+@author: Cody Normington
+"""
+
+my_name = "Cody Normington"
+print my_name
+
+my_age = 23
+print my_age
+
+my_age += 1
+print my_age
+
+magic_pill = 5
+print my_age - magic_pill
+
+temp_Celsius = 100
+temp_Fahrenheit = 9.0/5.0 * temp_Celsius + 32
+print temp_Fahrenheit

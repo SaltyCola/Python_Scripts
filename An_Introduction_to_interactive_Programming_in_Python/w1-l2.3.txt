@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Mar 11 09:10:31 2016
+
+@author: Cody Normington
+"""
+
+print "hello " * 4
+
+print 10 -- 2
+
+x = x == x
+print x

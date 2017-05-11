@@ -1,0 +1,21 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Mar 14 12:32:59 2016
+
+@author: Cody Normington
+"""
+
+#simple event driven program
+
+#import gui module
+import simpleguitk
+
+# event handler
+def tick():
+    print "tick!"
+
+# register handler
+timer = simpleguitk.create_timer(1000, tick)
+
+# start timer
+timer.start()

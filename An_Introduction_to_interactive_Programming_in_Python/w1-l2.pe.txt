@@ -1,0 +1,104 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Mar 11 13:23:15 2016
+
+@author: Cody Normington
+"""
+
+# Practice Exercises
+
+# Exercise 1
+
+def is_even(number):
+    """Takes a number and returns whether the number is even or not."""
+    #even    
+    if number % 2 == 0:
+        return True
+    #odd
+    else:
+        return False
+
+#test
+print is_even(0)
+print is_even(1)
+print is_even(2)
+print is_even(3)
+print is_even(4)
+print is_even(5)
+print is_even(6)
+print is_even(7)
+print is_even(8)
+print is_even(9)
+print is_even(10)
+
+print("")
+print("==========")
+print("")
+
+
+# Exercise 2
+
+def is_cool(name):
+    """Returns True if name is Joe, John or Stephen, and False otherwise"""
+    #is cool
+    if name == "Joe" or name == "John" or name == "Stephen":
+        return True
+    #is not cool
+    else:
+        return False
+
+#test
+print is_cool("Joe")
+print is_cool("John")
+print is_cool("Stephen")
+print is_cool("Cody")
+
+print("")
+print("==========")
+print("")
+
+
+# Exercise 5
+
+def interval_intersect(a,b,c,d):
+    """Returns True if the two intervals intersect anywhere. False otherwise."""
+    if c <= a <= d or c <= b <= d or a <= c <= b or a <= d <= b:
+        return True
+    else:
+        return False
+
+#test
+print interval_intersect(1,2,3,4)
+print interval_intersect(1,3,2,4)
+print interval_intersect(1,20,3,10)
+print interval_intersect(-9,0,1,-4)
+
+print("")
+print("==========")
+print("")
+
+
+# Exercise 10
+
+def smaller_root(a, b, c):
+    """Takes input numbers a, b, and c and returns the smaller solution to the
+    quadratic equation."""
+    #positive discriminant
+    import math
+    if (b**2 - 4*a*c) > 0:
+        print "Two Solutions. Lower is: "
+        return (((-1*b) - math.sqrt(b**2 - 4*a*c)) / (2*a))
+    #zero discriminant
+    elif (b**2 - 4*a*c) == 0:
+        print "One Solution: "
+        return ((-1*b) / (2*a))
+    #negative discriminant
+    elif (b**2 - 4*a*c) < 0:
+        print "Error: No real solutions."
+
+#test
+print smaller_root(2,1,3)
+print ""
+print smaller_root(1,2,1)
+print ""
+print smaller_root(2,8,4)

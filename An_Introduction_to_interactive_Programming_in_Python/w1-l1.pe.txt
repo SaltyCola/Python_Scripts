@@ -1,0 +1,94 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Mar 10 14:38:47 2016
+
+@author: Cody Normington
+"""
+
+#########################################
+# Practice Exercises for Functions
+#########################################
+print""
+print""
+
+# Exercise 1
+
+# convert miles to feet
+def miles_to_feet(miles):
+    feet = miles * 5280
+    return feet
+    
+#test
+print "There are " + str(miles_to_feet(5)) + " ft in " + str(5) + " miles."
+print""
+
+
+# Exercise 2
+
+# convert time to total seconds
+def total_seconds(hours, minutes, seconds):
+    tot_mins = hours * 60 + minutes
+    tot_secs = tot_mins * 60 + seconds
+    return tot_secs
+
+#test
+print "There are " + str(total_seconds(4,27,14)) + " seconds in 4 hrs, 27 mins, and 14 secs."
+print""
+
+
+# Exercise 3
+
+# calculate perimeter of a rectangle
+def rectangle_perimeter(width, height):
+    perimeter = width * 2 + height * 2
+    return perimeter
+
+#test
+print "A rectangle of width: 3 in and height: 7 in, has a perimeter: " + str(rectangle_perimeter(3,7)) + " in."
+print""
+
+
+# Exercise 4
+
+#calculate area of a rectangle
+def rectangle_area(width, height):
+    area = width * height
+    return area
+
+#test
+print "A rectangle of width: 3 in and height: 7 in, has an area: " + str(rectangle_area(3,7)) + " sqr in."
+print""
+
+
+# Exercise 12
+
+# print out tens and ones digits
+def print_digits(number):
+    if 0 <= number < 100:
+        tens = number // 10
+        ones = number % 10
+        print "The tens digit is " + str(tens) + ", and the ones digit is " + str(ones) + "."
+    else:
+        print "Your number was not within the specified range."
+
+#test
+print_digits(87)
+
+
+# Exrecise 13
+
+# print out powerball numbers
+def powerball():
+    import random
+    n1 = random.randrange(1,60)
+    n2 = random.randrange(1,60)
+    n3 = random.randrange(1,60)
+    n4 = random.randrange(1,60)
+    n5 = random.randrange(1,60)
+    p1 = random.randrange(1,36)
+    
+    #print numbers
+    print"Today's numbers are " + str(n1) + ", " + str(n2) + ", " + str(n3) + ", " + str(n4) + ", and " + str(n5) + ". The Powerball number is " + str(p1) + "."
+
+#test
+powerball()

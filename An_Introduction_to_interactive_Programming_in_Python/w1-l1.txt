@@ -1,0 +1,78 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Mar 10 11:18:46 2016
+
+@author: Cody Normington
+"""
+######################################
+# Testing Functions
+######################################
+
+# computes the area of a triangle
+def triangle_area(base, height):
+    area = (1.0 / 2.0) * base * height
+    return area
+
+# test triangle_area
+a1 = triangle_area(3.0, 8.0)
+print a1
+a2 = triangle_area(14.0, 2.0)
+print a2
+    
+# converts fahrenheit to celsius
+def fahrenheit2celsius(fahrenheit):
+    celsius = (5.0 / 9.0) * (fahrenheit - 32)
+    return celsius
+
+# test fahrenheit2celsius
+c1 = fahrenheit2celsius(32)
+c2 = fahrenheit2celsius(212)
+print c1, c2
+
+# converts fahrenheit to kelvin
+def fahrenheit2kelvin(fahrenheit):
+    celsius = fahrenheit2celsius(fahrenheit)
+    kelvin = celsius + 273.15
+    return kelvin
+    
+# test fahrenheit2kelvin
+k1 = fahrenheit2kelvin(32)
+k2 = fahrenheit2kelvin(212)
+print k1, k2
+
+# prints hello, world!
+def hello():
+    print "Hello, world!"
+    
+# test hello
+hello()
+# show what happens when requesting a value from a function that does not return a value
+h = hello()
+print h
+
+# modular arithmetic
+num = 49
+tens = num // 10
+ones = num % 10
+print tens, ones
+print 10 * tens + ones
+
+hour = 20
+shift = 8
+print (hour + shift) % 24
+
+width = 800
+position = 2
+move = -5
+position = (position + move) % width
+print position
+
+# Data conversion operations
+hour = 3
+ones = hour % 10
+tens = hour // 10
+print tens, ones, ":00"
+
+print str(tens), str(ones), ":00"
+
+print str(tens) + str(ones) + ":00"

@@ -1,0 +1,108 @@
+# template for "Guess the number" mini-project
+# input will come from buttons and an input field
+# all output for the game will be printed in the console
+
+
+
+# import modules
+import simplegui
+import random
+
+
+# Global Variables
+user_guess = 0
+secret_number = 0
+rng_max = 100
+int_turns = 7
+
+
+# helper function to start and restart the game
+def new_game():
+    """
+    initialize globals and choose secret number
+    """
+    #initialize globals
+    global user_guess, secret_number, int_turns
+    user_guess = 0
+    secret_number = 0
+    #set secret number
+    secret_number = random.randrange(0, rng_max)
+    #set number of turns
+    if rng_max == 100:
+        int_turns = 7
+    elif rng_max == 1000:
+        int_turns = 10
+    #print new game statement
+    print ""
+    print ""
+    print "New Game!"
+    print "The number is in the range: [0, " + str(rng_max) + ") You have " + str(int_turns) + " guesses."
+
+
+# define event handlers for control panel
+def range100():
+    """
+    button that changes the range to [0,100) and starts a new game 
+    """
+    #set range maximum and number of turns
+    global rng_max
+    rng_max = 100
+    new_game()
+    
+def range1000():
+    """
+    button that changes the range to [0,1000) and starts a new game 
+    """
+    #set range maximum and number of turns
+    global rng_max
+    rng_max = 1000
+    new_game()
+    
+def input_guess(guess):
+    """
+    grab user input for guess and compare to secret number
+    """
+    global user_guess, secret_number, int_turns
+    #turns left
+    int_turns -= 1
+    print "You have " + str(int_turns) + " guesses left."
+    #user guess
+    user_guess = int(guess)
+    print "Guess was: ", user_guess
+    #compare to secret number
+    if int_turns == 0:
+        print "Out of turns! Computer wins!"
+        print ""
+        print ""
+        new_game()
+    elif secret_number == user_guess:
+        print "Correct!"
+        print ""
+        print ""
+        new_game()
+    elif secret_number > user_guess:
+        print "Higher..."
+        print ""
+        print ""
+    elif secret_number < user_guess:
+        print "Lower..."
+        print ""
+        print ""
+
+
+# create frame
+fm_gtn = simplegui.create_frame("Guess the Number! :D", 200, 200)
+
+
+# register event handlers for control elements
+fm_gtn.add_input("Enter", input_guess, 200)
+fm_gtn.add_button("Range is [0, 100)", range100, 200)
+fm_gtn.add_button("Range is [0, 1000)", range1000, 200)
+
+
+#start frame
+fm_gtn.start()
+
+
+# call new_game 
+new_game()
